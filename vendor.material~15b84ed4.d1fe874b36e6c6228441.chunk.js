@@ -1,0 +1,24 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{GKdP:function(t,n,e){"use strict";e.d(n,"a",function(){return r}),e.d(n,"b",function(){return a});
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var r={ACTIVE:"mdc-tab-indicator--active",FADE:"mdc-tab-indicator--fade",NO_TRANSITION:"mdc-tab-indicator--no-transition"},a={CONTENT_SELECTOR:".mdc-tab-indicator__content"}},"I+w5":function(t,n,e){"use strict";e.d(n,"a",function(){return o});var r=e("mrSG"),a=e("P+sD"),o=function(t){function n(){return null!==t&&t.apply(this,arguments)||this}return r.b(n,t),n.prototype.activate=function(){this.adapter_.addClass(a.a.cssClasses.ACTIVE)},n.prototype.deactivate=function(){this.adapter_.removeClass(a.a.cssClasses.ACTIVE)},n}(a.a)},"P+sD":function(t,n,e){"use strict";e.d(n,"a",function(){return s});var r=e("mrSG"),a=e("ZomG"),o=e("GKdP"),s=function(t){function n(e){return t.call(this,r.a({},n.defaultAdapter,e))||this}return r.b(n,t),Object.defineProperty(n,"cssClasses",{get:function(){return o.a},enumerable:!0,configurable:!0}),Object.defineProperty(n,"strings",{get:function(){return o.b},enumerable:!0,configurable:!0}),Object.defineProperty(n,"defaultAdapter",{get:function(){return{addClass:function(){},removeClass:function(){},computeContentClientRect:function(){return{top:0,right:0,bottom:0,left:0,width:0,height:0}},setContentStyleProperty:function(){}}},enumerable:!0,configurable:!0}),n.prototype.computeContentClientRect=function(){return this.adapter_.computeContentClientRect()},n}(a.a)},R8s8:function(t,n,e){"use strict";e.d(n,"a",function(){return o});var r=e("mrSG"),a=e("P+sD"),o=function(t){function n(){return null!==t&&t.apply(this,arguments)||this}return r.b(n,t),n.prototype.activate=function(t){if(t){var n=this.computeContentClientRect(),e=t.width/n.width,r=t.left-n.left;this.adapter_.addClass(a.a.cssClasses.NO_TRANSITION),this.adapter_.setContentStyleProperty("transform","translateX("+r+"px) scaleX("+e+")"),this.computeContentClientRect(),this.adapter_.removeClass(a.a.cssClasses.NO_TRANSITION),this.adapter_.addClass(a.a.cssClasses.ACTIVE),this.adapter_.setContentStyleProperty("transform","")}else this.adapter_.addClass(a.a.cssClasses.ACTIVE)},n.prototype.deactivate=function(){this.adapter_.removeClass(a.a.cssClasses.ACTIVE)},n}(a.a)},TRBR:function(t,n,e){"use strict";e.r(n);var r=e("kjf7");e.d(n,"MDCTabIndicator",function(){return r.a});var a=e("GKdP");e.d(n,"cssClasses",function(){return a.a}),e.d(n,"strings",function(){return a.b});var o=e("P+sD");e.d(n,"MDCTabIndicatorFoundation",function(){return o.a});var s=e("I+w5");e.d(n,"MDCFadingTabIndicatorFoundation",function(){return s.a});var i=e("R8s8");e.d(n,"MDCSlidingTabIndicatorFoundation",function(){return i.a})},kjf7:function(t,n,e){"use strict";e.d(n,"a",function(){return c});var r=e("mrSG"),a=e("gTb/"),o=e("I+w5"),s=e("P+sD"),i=e("R8s8"),c=function(t){function n(){return null!==t&&t.apply(this,arguments)||this}return r.b(n,t),n.attachTo=function(t){return new n(t)},n.prototype.initialize=function(){this.content_=this.root_.querySelector(s.a.strings.CONTENT_SELECTOR)},n.prototype.computeContentClientRect=function(){return this.foundation_.computeContentClientRect()},n.prototype.getDefaultFoundation=function(){var t=this,n={addClass:function(n){return t.root_.classList.add(n)},removeClass:function(n){return t.root_.classList.remove(n)},computeContentClientRect:function(){return t.content_.getBoundingClientRect()},setContentStyleProperty:function(n,e){return t.content_.style.setProperty(n,e)}};return this.root_.classList.contains(s.a.cssClasses.FADE)?new o.a(n):new i.a(n)},n.prototype.activate=function(t){this.foundation_.activate(t)},n.prototype.deactivate=function(){this.foundation_.deactivate()},n}(a.a)}}]);
