@@ -1,0 +1,41 @@
+<template>
+  <require from="components/checkbox/checkbox"></require>
+  <require from="./play.styl"></require>
+  <div class="game-container" class.bind="loading ? 'loading' : ''">
+    <iframe class="game-frame" if.bind="osapi" src.bind="osapi" width.bind="iframeWidth" height.bind="iframeHeight" scrolling="no" allowfullscreen='true'></iframe>
+  </div>
+  <div class="mdc-dialog"
+     class.bind="confirm ? 'mdc-dialog--open' : ''"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="my-dialog-title"
+     aria-describedby="my-dialog-content">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface">
+        <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+        <h2 class="mdc-dialog__title" id="my-dialog-title">
+          安装游戏到账户
+        </h2>
+        <div class="mdc-dialog__content" id="my-dialog-content">
+          <ul class="mdc-list install-options">
+            <li class="mdc-list-item" tabindex="0">
+              <checkbox checked.two-way="notification">接收消息提醒</checkbox>
+            </li>
+            <li class="mdc-list-item" tabindex="0">
+              <checkbox checked.two-way="myapp">在个人资料里显示这个应用</checkbox>
+            </li>
+          </ul>
+        </div>
+        <footer class="mdc-dialog__actions">
+          <a href="game-list" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+            <span class="mdc-button__label">返回</span>
+          </a>
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="accept" click.delegate="install()">
+            <span class="mdc-button__label">确定</span>
+          </button>
+        </footer>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
+</template>

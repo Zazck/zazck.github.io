@@ -1,0 +1,52 @@
+<template>
+  <require from="app.styl"></require>
+  <require from="./components/drawer/drawer"></require>
+  <!--<require from="material-components-web/dist/material-components-web.min.css"></require>-->
+  <link href="https://cdn.bootcss.com/material-components-web/2.3.0/material-components-web.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+  <div>
+    <header class=" mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <button class="material-icons mdc-top-app-bar__navigation-icon" click.delegate="drawer.open()">menu</button><span class="mdc-top-app-bar__title">${router.currentInstruction.config.title}</span></section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+          <a href="https://github.com/zazck/php-dmm-netgame" target="_blank" class="mdc-top-app-bar__action-item" aria-label="Github Repository"><svg height="24" class="octicon octicon-mark-github text-white" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+        </section>
+      </div>
+    </header>
+    <drawer view-model.ref="drawer">
+      <div class="mdc-drawer__header">
+        <h3 class="mdc-drawer__title">站点导航</h3>
+        <h6 class="mdc-drawer__subtitle">DMM网页游戏启动器</h6>
+      </div>
+      <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+          <a class="mdc-list-item" repeat.for="row of router.navigation" class.bind="row.isActive ? 'mdc-list-item--activated' : ''" href.bind="row.href[row.href.length - 1] === '/' ? row.href : `${row.href}/`" aria-current="page">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">${row.settings.icon}</i>
+            <span class="mdc-list-item__text">${row.title}</span>
+          </a>
+          <hr class="mdc-list-divider">
+          <h6 class="mdc-list-group__subheader">友情链接</h6>
+          <a class="mdc-list-item" href="http://ooi.moe/" tabindex="-1">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>OOI缓存系统
+          </a>
+        </nav>
+      </div>
+    </drawer>
+    <div class="mdc-top-app-bar--fixed-adjust">
+      <router-view></router-view>
+    </div>
+    <!--<div class="mdc-snackbar">
+      <div class="mdc-snackbar__surface">
+        <div class="mdc-snackbar__label"
+            role="status"
+            aria-live="polite">
+          Can't send photo. Retry in 5 seconds.
+        </div>
+        <div class="mdc-snackbar__actions">
+          <button type="button" class="mdc-button mdc-snackbar__action">Retry</button>
+        </div>
+      </div>
+    </div>-->
+  </div>
+</template>

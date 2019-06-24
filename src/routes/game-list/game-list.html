@@ -1,0 +1,43 @@
+<template>
+  <require from="components/tab-bar/tab-bar"></require>
+  <require from="./game-list.styl"></require>
+  <div>
+    <tab-bar index.two-way="gameCategory" if.bind="category">
+      <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0" id="mdc-tab-1">
+        <span class="mdc-tab__content">
+          <span class="mdc-tab__icon material-icons" aria-hidden="true">mood</span>
+          <span class="mdc-tab__text-label">全年龄</span>
+        </span>
+        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+          <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+        </span>
+        <span class="mdc-tab__ripple"></span>
+      </button>
+      <button class="mdc-tab" role="tab" aria-selected="false" tabindex="-1" id="mdc-tab-2">
+        <span class="mdc-tab__content">
+          <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
+          <span class="mdc-tab__text-label">成人向</span>
+        </span>
+        <span class="mdc-tab-indicator">
+          <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+        </span>
+        <span class="mdc-tab__ripple"></span>
+      </button>
+    </tab-bar>
+    <div class="game-list-body">
+      <ul>
+        <li repeat.for="info of (gameCategory ? adultList : allList)">
+          <div class="mdc-card">
+            <a href="javascript:void(0);" click.delegate="run(info.name)" class="mdc-card__primary-action game-list-action" tabindex="0">
+              <div class="mdc-card__media mdc-card__media--square game-list-thumb" css="background-image: url(&quot;https://img-freegames.dmm.com/app/${info.thumb}/details/pic_thmb.jpg&quot;);"></div>
+              <div class="game-list-action-content">
+                <h2 class="mdc-typography mdc-typography--headline6">${info.title}</h2>
+                <h3 class="mdc-typography mdc-typography--subtitle2">${info.comment}</h3>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
